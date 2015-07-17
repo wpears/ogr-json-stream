@@ -1,0 +1,35 @@
+{
+  "name": "ogr-json-stream",
+  "version": "0.0.1",
+  "description": "Transform stream that takes in ogr2ogr GeoJSON and spits out features from a feature colelction.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wpears/ogr-json-stream.git"
+  },
+  "keywords": [
+    "transform",
+    "stream",
+    "ogr2ogr",
+    "gdal",
+    "geo",
+    "geojson",
+    "readable-stream"
+  ],
+  "author": "Wyatt Pearsall <wyatt.pearsall@cfpb.gov>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpears/ogr-json-stream/issues"
+  },
+  "homepage": "https://github.com/wpears/ogr-json-stream",
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "readable-stream": "^2.0.2"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
