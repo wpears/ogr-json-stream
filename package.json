@@ -30,6 +30,8 @@
     "readable-stream": "^2.0.2"
   },
   "devDependencies": {
+    "pump": "^1.0.0",
+    "stream-stats": "^0.7.0",
     "tape": "^4.0.0"
   }
 }

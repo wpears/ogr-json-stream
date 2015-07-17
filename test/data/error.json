@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ type": "Feature", "properties": { "ID": 1, "ADR_NUM": 20779, "ADR_NUM_SU": null, "ADR_BLDG": null, "ADR_UNIT_T": null, "ADR_UNIT_I": null, "PRE_DIR": null, "PSTR_NAME": "Belvedere", "PSTR_TYPE": null, "PSUF_DIR": null, "PSTR_MOD": null, "PSTR_FULNA": "Belvedere", "ADR_PLACE": null, "ADR_MUNI": null, "ADR_CITY": "Evansville", "ADR_ZIP5": "72729", "ADR_ZIP4": "9745", "ADR_ZIP9": "72729-9745", "CNTY_NAME": "Adair", "ADR_STATE": "OK", "ADR_LABEL": "20779 Belvedere", "ADR_BOX_TY": null, "ADR_BOX_ID": null, "ADR_BOXGR_": null, "ADR_BOXGR1": null, "ADR_BOX_LB": null, "LON_X": -94.50000292, "LAT_Y": 35.795791319999999, "FEA_TYP": null, "DATE_ED": "20140127", "ADD_AUTH": "143" }, "geometry": { "type": "Point", "coordinates": [ -94.500002920147892, 35.79579132004789 ] } },
+{ "type": "Feature", "properties": { "ID": 2, "ADR_NUM": 20839, "ADR_NUM_SU": null, "ADR_BLDG": null, "ADR_UNIT_T": null, "ADR_UNIT_I": null, "PRE_DIR": null, "PSTR_NAME": "Belvedere", "PSTR_TYPE": null, "PSUF_DIR": null, "PSTR_MOD": null, "PSTR_FULNA": "Belvedere", "ADR_PLACE": null, "ADR_MUNI": null, "ADR_CITY": "Evansville", "ADR_ZIP5": "72729", "ADR_ZIP4": "9746", "ADR_ZIP9": "72729-9746", "CNTY_NAME": "Adair", "ADR_STATE": "OK", "ADR_LABEL": "20839 Belvedere", "ADR_BOX_TY": null, "ADR_BOX_ID": null, "ADR_BOXGR_": null, "ADR_BOXGR1": null, "ADR_BOX_LB": null, "LON_X": -94.499916479999996, "LAT_Y": 35.79463063, "FEA_TYP": null, "DATE_ED": "20140127", "ADD_AUTH": "143" }, "geometry": { "type": "Point", "coordinates": [ -94.49991648748707, 35.794630637902507 ] } }
+]
+}
