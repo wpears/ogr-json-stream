@@ -8,15 +8,24 @@ var mainSplit = / },?\n/;
 var featureSplit = /"features": \[\n/;
 var reform = ' }';
 var readableObj = {readableObjectMode: true};
+var stringifyObj = {stringify: 1};
 
 function OgrJsonStream(obj){
   if(!(this instanceof OgrJsonStream)) return new OgrJsonStream(obj);
   if(!obj) obj = readableObj;
-  else obj.readableObjectMode = true;
+  if(!obj.stringify) obj.readableObjectMode = true;
+
   Transform.call(this, obj);
   this.leftovers = '';
   this.beforeFeatures = 1;
+  this.stringify = obj.stringify;
 }
+
+OgrJsonStream.stringify = function(obj){
+  if(!obj) obj = stringifyObj;
+  obj.stringify = 1;
+  return new OgrJsonStream(obj);
+};
 
 OgrJsonStream.prototype._transform = function(chunk, enc, cb){
   var split;
@@ -33,14 +42,17 @@ OgrJsonStream.prototype._transform = function(chunk, enc, cb){
   }else{
     split = chunk.split(mainSplit);
     var len = split.length - 1;
-    var json;
+    var output;
     for(var i=0; i < len; i++){
-      try{
-        json = JSON.parse(split[i] + reform);
-      }catch(e){
-        return cb(e);
+      output = split[i] + reform;
+      if(!this.stringify){
+        try{
+          output = JSON.parse(output);
+        }catch(e){
+          return cb(e);
+        }
       }
-      this.push(json);
+      this.push(output);
     }
     this.leftovers = split[i];
   }
@@ -50,14 +62,17 @@ OgrJsonStream.prototype._transform = function(chunk, enc, cb){
 OgrJsonStream.prototype._flush = function(cb){
   var split = this.leftovers.split(mainSplit);
   var len = split.length - 1;
-  var json;
+  var output;
   for(var i=0; i < len; i++){
-    try{
-      json = JSON.parse(split[i] + reform);
-    }catch(e){
-      return cb(e);
+    output = split[i] + reform;
+    if(!this.stringify){
+      try{
+        output = JSON.parse(output);
+      }catch(e){
+        return cb(e);
+      }
     }
-    this.push(json);
+    this.push(output);
   }
   cb(null);
 }
