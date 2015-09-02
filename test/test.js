@@ -7,10 +7,18 @@ var pump = require('pump');
 var OgrJsonStream = require('../index');
 
 test('Usage', function(t){
-  t.plan(2);
+  t.plan(6);
   var jsonStream = OgrJsonStream();
   t.ok(jsonStream instanceof Transform, 'OgrJsonStream is a Transform stream');
   t.ok(jsonStream._readableState.objectMode, 'Spits out objects');
+
+  var stringifiedStream = OgrJsonStream.stringify();
+  t.ok(stringifiedStream instanceof Transform, 'OgrJsonStream is a Transform stream');
+  t.notOk(stringifiedStream._readableState.objectMode, 'Spits out buffers');
+
+  var stringifiedStream2 = OgrJsonStream({stringify: 1});
+  t.ok(stringifiedStream2 instanceof Transform, 'OgrJsonStream is a Transform stream');
+  t.notOk(stringifiedStream2._readableState.objectMode, 'Spits out buffers');
 });
 
 test('Operations', function(t){
