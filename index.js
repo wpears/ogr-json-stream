@@ -7,6 +7,8 @@ inherits(OgrJsonStream, Transform);
 var mainSplit = / },?\n/;
 var featureSplit = /"features": \[\n/;
 var reform = ' }';
+var nanValue= /: NaN,/g;
+var nullValue= ': null,';
 var readableObj = {readableObjectMode: true};
 var stringifyObj = {stringify: 1};
 
@@ -45,6 +47,11 @@ OgrJsonStream.prototype._transform = function(chunk, enc, cb){
     var output;
     for(var i=0; i < len; i++){
       output = split[i] + reform;
+
+      if(nanValue.test(output)){
+        output = output.replace(nanValue, nullValue);
+      }
+
       if(!this.stringify){
         try{
           output = JSON.parse(output);
@@ -65,6 +72,11 @@ OgrJsonStream.prototype._flush = function(cb){
   var output;
   for(var i=0; i < len; i++){
     output = split[i] + reform;
+
+    if(nanValue.test(output)){
+      output = output.replace(nanValue, nullValue);
+    }
+
     if(!this.stringify){
       try{
         output = JSON.parse(output);

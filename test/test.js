@@ -22,12 +22,13 @@ test('Usage', function(t){
 });
 
 test('Operations', function(t){
-  t.plan(5);
+  t.plan(7);
 
   var arr = [
     {file: 'test/data/normal.json', count: 4, err: 0},
     {file: 'test/data/nullgeo.json', count: 6, err: 0},
-    {file: 'test/data/error.json', count: 2, err: 1}
+    {file: 'test/data/error.json', count: 2, err: 1},
+    {file: 'test/data/nan.json', count: 3, err: 0}
   ]
 
   arr.forEach(function(v){
