@@ -1,6 +1,6 @@
 {
   "name": "ogr-json-stream",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Transform stream that takes in ogr2ogr GeoJSON and spits out features from a feature colelction.",
   "main": "index.js",
   "scripts": {
